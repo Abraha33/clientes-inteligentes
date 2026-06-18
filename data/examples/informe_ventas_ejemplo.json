@@ -1,0 +1,33 @@
+[
+  {
+    "id_cliente": "DEMO-001",
+    "id_wappsi": "WAP-DEMO-001",
+    "nombre": "Cliente Demo 001",
+    "ordenes": [
+      {"fecha": "2026-06-15", "monto": 1200, "productos": ["Pollo Entero x5", "Pechuga x3"]},
+      {"fecha": "2026-06-01", "monto": 850, "productos": ["Alas x10", "Pollo Entero x2"]},
+      {"fecha": "2026-05-15", "monto": 950, "productos": ["Pechuga x5", "Alas x5"]},
+      {"fecha": "2026-05-01", "monto": 1100, "productos": ["Pollo Entero x4", "Pechuga x4"]}
+    ],
+    "total_ventas": 4100,
+    "promedio_mensual": 1025,
+    "ultima_compra": "2026-06-15",
+    "primera_compra": "2025-03-10",
+    "total_ordenes": 4
+  },
+  {
+    "id_cliente": "DEMO-002",
+    "id_wappsi": "WAP-DEMO-002",
+    "nombre": "Cliente Demo 002",
+    "ordenes": [
+      {"fecha": "2026-05-20", "monto": 450, "productos": ["Pollo Entero x2"]},
+      {"fecha": "2026-04-18", "monto": 600, "productos": ["Pollo Entero x3"]},
+      {"fecha": "2026-03-22", "monto": 350, "productos": ["Pollo Entero x1", "Alas x2"]}
+    ],
+    "total_ventas": 1400,
+    "promedio_mensual": 467,
+    "ultima_compra": "2026-05-20",
+    "primera_compra": "2025-07-15",
+    "total_ordenes": 3
+  }
+]

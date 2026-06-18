@@ -1,0 +1,28 @@
+[
+  {
+    "id_cliente": "DEMO-001",
+    "nombre": "Cliente Demo 001",
+    "latitud": 6.25,
+    "longitud": -75.57,
+    "direccion": "Calle Ejemplo 123, Centro",
+    "barrio": "Centro Ficticio",
+    "ciudad": "Ciudad Demo",
+    "tipo_comercio": "Restaurante",
+    "subtipo_comercio": "Parrilla",
+    "nivel": "A",
+    "estado": "Activo"
+  },
+  {
+    "id_cliente": "DEMO-002",
+    "nombre": "Cliente Demo 002",
+    "latitud": 6.22,
+    "longitud": -75.55,
+    "direccion": "Carrera Ejemplo 456, Norte",
+    "barrio": "Barrio Ficticio Norte",
+    "ciudad": "Ciudad Demo",
+    "tipo_comercio": "Ferretería",
+    "subtipo_comercio": "Ferretería general",
+    "nivel": "B",
+    "estado": "Enfriándose"
+  }
+]

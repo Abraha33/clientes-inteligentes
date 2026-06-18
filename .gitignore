@@ -1,0 +1,68 @@
+# ============================================
+# Datos reales de clientes — NO SUBIR A PÚBLICO
+# ============================================
+data/raw/
+data/manual/
+data/private/
+data/exports/
+data/wappsi_real/
+data/informes_reales/
+
+# Archivos de procesamiento con datos reales
+data/processed/
+
+# ============================================
+# Formatos de exportación / documentos
+# ============================================
+*.xlsx
+*.xls
+*.csv
+*.ods
+*.pdf
+*.html
+*.jsonl
+*.zip
+*.7z
+*.rar
+
+# ============================================
+# Bases de datos
+# ============================================
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+
+# ============================================
+# Credenciales y secretos
+# ============================================
+.env
+.env.local
+credentials.txt
+secrets.json
+cookies.json
+tokens.json
+*.key
+*.pem
+*.cert
+config.ini
+
+# ============================================
+# Sistema / IDE
+# ============================================
+.DS_Store
+Thumbs.db
+*.pyc
+__pycache__/
+*.swp
+*.swo
+*.swn
+.vscode/
+.idea/
+*.log
+
+# ============================================
+# Excepción: archivos de ejemplo ficticios
+# ============================================
+!data/examples/
+!data/examples/**

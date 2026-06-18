@@ -1,0 +1,140 @@
+[
+  {
+    "identificacion": {
+      "id_cliente": "DEMO-001",
+      "id_wappsi": "WAP-DEMO-001",
+      "nombre": "Cliente Demo 001",
+      "tipo_documento": "NIT",
+      "numero_documento": "DOC-DEMO-001",
+      "fecha_alta": "2025-01-15"
+    },
+    "contacto": {
+      "telefono": "3000000000",
+      "telefono_secundario": "",
+      "email": "cliente001@example.com",
+      "contacto_nombre": "Contacto Demo 001",
+      "contacto_cargo": "Administrador"
+    },
+    "ubicacion": {
+      "direccion": "Calle Ejemplo 123, Centro",
+      "barrio": "Centro Ficticio",
+      "ciudad": "Ciudad Demo",
+      "provincia": "Provincia Demo",
+      "codigo_postal": "00000",
+      "latitud": null,
+      "longitud": null,
+      "tipo_comercio": "Restaurante",
+      "subtipo_comercio": "Parrilla"
+    },
+    "clasificacion_manual": {
+      "categoria": "Restaurante",
+      "subcategoria": "Parrilla",
+      "notas": "Cliente ficticio para documentación pública",
+      "fecha_clasificacion": "2026-06-10",
+      "clasificado_por": "documentacion"
+    },
+    "ventas": {
+      "total_ventas": 45000,
+      "promedio_mensual": 3750,
+      "ultima_compra": "2026-06-15",
+      "primera_compra": "2025-03-10",
+      "frecuencia_compras": 15,
+      "total_ordenes": 48,
+      "estado_comercial": "Activo"
+    },
+    "productos": {
+      "productos_frecuentes": ["Pollo Entero", "Pechuga", "Alas"],
+      "categoria_predominante": "Pollos",
+      "ticket_promedio": 938
+    },
+    "marketing": {
+      "segmento": "alto_valor",
+      "canal_preferido": "WhatsApp",
+      "acepta_marketing": true,
+      "ultima_campana": "Campana_ejemplo_01",
+      "fecha_ultima_interaccion": "2026-06-14"
+    },
+    "riesgo": {
+      "nivel_riesgo": "Bajo",
+      "saldo_pendiente": 0,
+      "devoluciones": 1,
+      "motivo_riesgo": "",
+      "alertas": []
+    },
+    "control": {
+      "fecha_actualizacion": "2026-06-17T22:00:00Z",
+      "version": 1,
+      "fuente_origen": "Ejemplo ficticio",
+      "hash_integridad": null
+    }
+  },
+  {
+    "identificacion": {
+      "id_cliente": "DEMO-002",
+      "id_wappsi": "WAP-DEMO-002",
+      "nombre": "Cliente Demo 002",
+      "tipo_documento": "NIT",
+      "numero_documento": "DOC-DEMO-002",
+      "fecha_alta": "2025-06-01"
+    },
+    "contacto": {
+      "telefono": "3000000001",
+      "telefono_secundario": "3000000002",
+      "email": "cliente002@example.com",
+      "contacto_nombre": "Contacto Demo 002",
+      "contacto_cargo": "Dueño"
+    },
+    "ubicacion": {
+      "direccion": "Carrera Ejemplo 456, Norte",
+      "barrio": "Barrio Ficticio Norte",
+      "ciudad": "Ciudad Demo",
+      "provincia": "Provincia Demo",
+      "codigo_postal": "00001",
+      "latitud": null,
+      "longitud": null,
+      "tipo_comercio": "Ferretería",
+      "subtipo_comercio": "Ferretería general"
+    },
+    "clasificacion_manual": {
+      "categoria": "Ferretería",
+      "subcategoria": "Ferretería general",
+      "notas": "",
+      "fecha_clasificacion": "2026-06-12",
+      "clasificado_por": "documentacion"
+    },
+    "ventas": {
+      "total_ventas": 12000,
+      "promedio_mensual": 1500,
+      "ultima_compra": "2026-05-20",
+      "primera_compra": "2025-07-15",
+      "frecuencia_compras": 30,
+      "total_ordenes": 18,
+      "estado_comercial": "Enfriándose"
+    },
+    "productos": {
+      "productos_frecuentes": ["Pollo Entero"],
+      "categoria_predominante": "Pollos",
+      "ticket_promedio": 667
+    },
+    "marketing": {
+      "segmento": "recuperacion",
+      "canal_preferido": "Llamada",
+      "acepta_marketing": true,
+      "ultima_campana": "Campana_ejemplo_02",
+      "fecha_ultima_interaccion": "2026-06-01"
+    },
+    "riesgo": {
+      "nivel_riesgo": "Medio",
+      "saldo_pendiente": 500,
+      "devoluciones": 3,
+      "motivo_riesgo": "Saldo pendiente y devoluciones",
+      "alertas": ["Saldo pendiente", "Devoluciones frecuentes"]
+    },
+    "control": {
+      "fecha_actualizacion": "2026-06-17T22:00:00Z",
+      "version": 1,
+      "fuente_origen": "Ejemplo ficticio",
+      "hash_integridad": null
+    }
+  }
+]
