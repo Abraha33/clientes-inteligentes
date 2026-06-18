@@ -19,7 +19,6 @@ TODO:
     - Mejorar detección de NIT/CC con formatos colombianos reales
     - Detectar direcciones con formato de calle y número
     - Detectar coordenadas geográficas exactas
-    - Agregar lista blanca de excepciones (data/examples/)
     - Integrar como hook de pre-commit
 """
 
@@ -47,8 +46,9 @@ PATRONES = {
     ),
 }
 
-# Extensiones de correo permitidas en ejemplos
-CORREOS_PERMITIDOS = {"@example.com", "@example.org", "@test.pe", "@demo.local"}
+# Datos ficticios permitidos SOLO dentro de data/examples/ (nunca datos reales)
+DOMINIOS_EJEMPLO = {"@example.com", "@example.org", "@demo.local"}
+TELEFONOS_DEMO = {"3000000000", "3000000001", "3000000002"}
 
 # Archivos y directorios a ignorar completamente
 IGNORAR_RUTAS = {
@@ -68,6 +68,10 @@ def escanear_archivo(ruta: str) -> list[dict]:
     """
     Escanea un archivo en busca de patrones de datos sensibles.
 
+    El escaneo llama a es_valor_demo_permitido() que aplica reglas
+    relajadas solo si el archivo está dentro de data/examples/.
+    Fuera de data/examples/ la validación es estrictamente completa.
+
     Args:
         ruta: Ruta absoluta al archivo.
 
@@ -81,8 +85,10 @@ def escanear_archivo(ruta: str) -> list[dict]:
                 for nombre_patron, regex in PATRONES.items():
                     for match in regex.finditer(linea):
                         coincidencia = match.group()
-                        if nombre_patron == "correo_electronico" and _es_correo_permitido(coincidencia):
+                        # Saltar datos ficticios permitidos solo en data/examples/
+                        if es_valor_demo_permitido(coincidencia, nombre_patron, ruta):
                             continue
+                        # Saltar falsos positivos comunes (años, IDs con ceros, etc.)
                         if nombre_patron == "documento_numerico_largo" and _es_falso_positivo(coincidencia):
                             continue
                         hallazgos.append({
@@ -96,9 +102,40 @@ def escanear_archivo(ruta: str) -> list[dict]:
     return hallazgos
 
 
-def _es_correo_permitido(correo: str) -> bool:
-    """Verifica si un correo usa un dominio de ejemplo permitido."""
-    return any(correo.lower().endswith(dominio) for dominio in CORREOS_PERMITIDOS)
+def es_ruta_examples(ruta: str) -> bool:
+    """
+    Devuelve True si la ruta contiene data/examples/ o data\\examples\\.
+
+    data/examples/ solo puede contener datos ficticios para documentación
+    pública. Nunca debe contener datos reales de clientes.
+    """
+    ruta_normalizada = ruta.replace(os.sep, "/")
+    return "/data/examples/" in ruta_normalizada
+
+
+def es_valor_demo_permitido(coincidencia: str, nombre_patron: str, ruta: str) -> bool:
+    """
+    Verifica si una coincidencia es un dato ficticio permitido dentro de data/examples/.
+    Si la ruta NO está en data/examples/, devuelve False inmediatamente.
+
+    Reglas solo para data/examples/:
+      - correos terminados en @example.com, @example.org, @demo.local
+      - teléfonos demo de 10 dígitos que empiecen por 300000000
+      - documentos que empiecen por DOC-DEMO-
+      - ids que empiecen por DEMO- o WAP-DEMO-
+    """
+    if not es_ruta_examples(ruta):
+        return False
+
+    if nombre_patron == "correo_electronico":
+        return any(coincidencia.lower().endswith(d) for d in DOMINIOS_EJEMPLO)
+    if nombre_patron == "telefono":
+        return len(coincidencia) == 10 and coincidencia.startswith("300000000")
+    if nombre_patron == "documento_numerico_largo":
+        if len(coincidencia) == 10 and coincidencia.startswith("300000000"):
+            return True
+        return False
+    return False
 
 
 def _es_falso_positivo(valor: str) -> bool:
@@ -110,6 +147,9 @@ def _es_falso_positivo(valor: str) -> bool:
         return True
     # IDs de ejemplo del proyecto
     if valor.startswith("000") or valor == "00000000":
+        return True
+    # Teléfonos demo (secuencias artificiales que nunca son datos reales)
+    if valor in TELEFONOS_DEMO:
         return True
     return False
 
