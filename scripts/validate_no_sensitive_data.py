@@ -48,7 +48,6 @@ PATRONES = {
 
 # Datos ficticios permitidos SOLO dentro de data/examples/ (nunca datos reales)
 DOMINIOS_EJEMPLO = {"@example.com", "@example.org", "@demo.local"}
-TELEFONOS_DEMO = {"3000000000", "3000000001", "3000000002"}
 
 # Archivos y directorios a ignorar completamente
 IGNORAR_RUTAS = {
@@ -147,9 +146,6 @@ def _es_falso_positivo(valor: str) -> bool:
         return True
     # IDs de ejemplo del proyecto
     if valor.startswith("000") or valor == "00000000":
-        return True
-    # Teléfonos demo (secuencias artificiales que nunca son datos reales)
-    if valor in TELEFONOS_DEMO:
         return True
     return False
 
